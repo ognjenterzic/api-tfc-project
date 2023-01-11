@@ -8,6 +8,11 @@ on:
     branches:
      - main
 
+env:
+ # Credentials for deployment to AWS
+ AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+ AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
 jobs:
   terraform:
     name: "Terraform"
@@ -31,5 +36,5 @@ jobs:
        run: terraform fmt 
 
      - name: Terraform Apply
-       if:  github.event_name == 'push'
+       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
        run: terraform apply -auto-approve -input=false
