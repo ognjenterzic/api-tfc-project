@@ -8,6 +8,13 @@ terraform {
   }
 
  #####CLOUD 
+ cloud {
+    organization = "hashicorp-learn-ot"
+
+    workspaces {
+      name = "api-tfc-demo"
+    }
+  }
 
 }
 
