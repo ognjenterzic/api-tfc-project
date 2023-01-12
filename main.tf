@@ -13,13 +13,13 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.region
 }
 
 
 resource "aws_s3_bucket" "ogi-bucket" {
   bucket = "ogi-bucket-s3"
-  force_destroy = true
+  force_destroy = var.bool_true
   acl = "public-read"
 
   versioning {
@@ -34,7 +34,7 @@ resource "aws_s3_bucket" "ogi-bucket" {
     }
   }
 }
-
+/*
 resource "aws_dynamodb_table" "example" {
   name             = "example"
   hash_key         = "TestTableHashKey"
@@ -49,3 +49,5 @@ resource "aws_dynamodb_table" "example" {
 
 
 }
+
+*/
