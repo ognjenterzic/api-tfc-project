@@ -1,5 +1,5 @@
 output "bucked-id" {
-  value = aws_s3_bucket.ogi-bucket.id
+  value =["${aws_s3_bucket.*.id}"] 
 }
 
 output "ec2_global_ips" {
