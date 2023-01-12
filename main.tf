@@ -18,7 +18,9 @@ provider "aws" {
 
 
 resource "aws_s3_bucket" "ogi-bucket" {
-  bucket = "ogi-bucket-s3"
+for_each = local.buckets
+
+  bucket = "${each.key}"
   force_destroy = var.bool_true
   acl = "public-read"
 
@@ -34,7 +36,7 @@ resource "aws_s3_bucket" "ogi-bucket" {
     }
   }
 }
-
+/*
 resource "aws_instance" "ogi-instance" {
   count = 2
 
@@ -44,6 +46,13 @@ resource "aws_instance" "ogi-instance" {
   tags = {
     Name = "Server ${count.index}"
   }
+}
+*/
+locals {
+  buckets= toset([
+    "ogi-bucket-11-s3",
+    "ogi-bucket-22-s3"
+  ])
 }
 
 /*
