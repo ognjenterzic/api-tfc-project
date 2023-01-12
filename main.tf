@@ -35,7 +35,7 @@ resource "aws_s3_bucket" "ogi-bucket" {
   }
 }
 
-rresource "aws_dynamodb_table" "example" {
+resource "aws_dynamodb_table" "example" {
   name             = "example"
   hash_key         = "TestTableHashKey"
   billing_mode     = "PAY_PER_REQUEST"
