@@ -3,5 +3,5 @@ output "bucked-id" {
 }
 
 output "ec2_global_ips" {
-  value = ["${aws_instance.ogi-intance.*.public_ip}"]
+  value = ["${aws_instance.ogi-instance.*.public_ip}"]
 }
