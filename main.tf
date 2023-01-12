@@ -23,7 +23,7 @@ resource "aws_s3_bucket" "ogi-bucket" {
   acl = "public-read"
 
   versioning {
-    enabled = true
+    enabled = var.bool_true  
   }
 
   server_side_encryption_configuration {
@@ -34,6 +34,18 @@ resource "aws_s3_bucket" "ogi-bucket" {
     }
   }
 }
+
+resource "aws_instance" "ogi-instance" {
+  count = 2
+
+  ami = var.ami
+  instance_type = var.instance_type-1
+
+  tags = {
+    Name = "Server ${count.index}"
+  }
+}
+
 /*
 resource "aws_dynamodb_table" "example" {
   name             = "example"
