@@ -39,4 +39,10 @@ resource "aws_dynamodb_table" "ogi-dynamodb" {
   name = "Test table"
   hash_key         = "TestTableHashKey"
   billing_mode     = "PAY_PER_REQUEST"
+  
+attribute {
+    name = "TestTableHashKey"
+    type = "S"
+  }
+
 }
