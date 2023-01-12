@@ -15,7 +15,7 @@ variable "bool_true" {
 variable "ami" {
   description = "ami for Ubuntu Server 20.4 LTS SSD"
   type = string
-  default = "ami-0f972b3903f44791c"
+  default = "ami-0b93ce03dcbcb10f6"
 }
 
 variable "instance_type-1" {
