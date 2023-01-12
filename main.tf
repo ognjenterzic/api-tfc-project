@@ -35,14 +35,17 @@ resource "aws_s3_bucket" "ogi-bucket" {
   }
 }
 
-resource "aws_dynamodb_table" "ogi-dynamodb" {
-  name = "Test table"
+rresource "aws_dynamodb_table" "example" {
+  name             = "example"
   hash_key         = "TestTableHashKey"
   billing_mode     = "PAY_PER_REQUEST"
-  
-attribute {
+  stream_enabled   = true
+  stream_view_type = "NEW_AND_OLD_IMAGES"
+
+  attribute {
     name = "TestTableHashKey"
     type = "S"
   }
+
 
 }
